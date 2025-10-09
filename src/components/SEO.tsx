@@ -11,12 +11,12 @@ interface SEOProps {
     siteName: string
     title: string
     description: string
-    images?: Array<{
+    images?: readonly {
       url: string
       width: number
       height: number
       alt: string
-    }>
+    }[]
   }
   schema?: object | object[]
 }
