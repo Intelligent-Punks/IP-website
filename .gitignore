@@ -10,8 +10,10 @@ node_modules
 /dist
 /build
 
+# Development
+*.log
+
 # Misc
-.DS_Store
 *.pem
 
 # Debug
@@ -35,6 +37,7 @@ next-env.d.ts
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+.cursor/
 .idea
 *.swp
 *.swo
