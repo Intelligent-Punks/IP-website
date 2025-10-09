@@ -1,6 +1,6 @@
 export const homeContent = {
   hero: {
-    title: 'Welcome!',
+    title: 'Welcome to IP Website!',
     subtitle: 'Modern website built with React + TypeScript',
     description: 'Fast, accessible, and optimized for search engines.',
     cta: {
