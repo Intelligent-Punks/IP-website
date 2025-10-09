@@ -1,0 +1,49 @@
+---
+alwaysApply: true
+---
+
+Project rules for Cursor IDE (React + TypeScript, static site, content-separated)
+
+Content and texts:
+- All page texts must be stored in src/content/, completely separate from components
+- Each page has its own file: home.ts, about.ts, projects.ts, etc.
+- Only plain exported objects are allowed – no logic or JSX
+- Components should import content directly
+- SEO meta (title, description, canonical, openGraph) must be stored in src/content/seo/
+- Structured data (JSON-LD) must be stored in src/content/seo/schema.ts
+- All images must have alt texts defined in content files
+
+Template page:
+- Repeating pages must use a single reusable component (e.g. TemplatePage.tsx)
+- Data for repeated blocks (e.g. articles, projects) should be stored as arrays in content
+
+Future-proofing:
+- All content must be stored in a way that allows easy migration to API later without changing component structure
+- Global constants (social links, emails, phones) must be stored in src/config/
+
+Animations:
+- Animations must be handled via helpers in utils/animations.ts or inside AnimatedSection component
+- Page transitions must use a single PageTransition wrapper
+- No inline animation logic inside JSX
+
+Images & Icons:
+- Use WebP/AVIF for photos and backgrounds; fallback to JPEG if necessary
+- Use PNG only when transparency or lossless quality is required
+- Use SVG for icons, logos, and simple vector graphics
+- All images must be optimised and lazy-loaded via utils/images.ts
+
+Performance:
+- Lighthouse score must be ≥ 90 across Performance, Accessibility, Best Practices, SEO
+- Heavy sections must use dynamic import/code-splitting
+- Avoid inline styles, use TailwindCSS or dedicated style modules
+- Routes must be defined in src/routes.ts for consistency
+
+Code generation rules:
+- Do not hardcode text in JSX – always load from content
+- Components must receive data via props or content imports
+- Repeating structures must use map/render functions, avoid duplication
+
+MCP:
+- All dependency versions, syntax, and APIs must be validated through MCP context7
+- Do not assume versions or behaviour if MCP context is disconnected
+- If MCP context is unavailable, explicitly notify before generating code
