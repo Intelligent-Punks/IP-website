@@ -1,33 +1,33 @@
 export const homeContent = {
   hero: {
-    title: 'Добро пожаловать',
-    subtitle: 'Современный веб-сайт на React + TypeScript',
-    description: 'Быстрый, доступный и оптимизированный для поисковых систем.',
+    title: 'Welcome',
+    subtitle: 'Modern website built with React + TypeScript',
+    description: 'Fast, accessible, and optimized for search engines.',
     cta: {
       primary: {
-        text: 'Начать',
+        text: 'Get Started',
         link: '/projects',
       },
       secondary: {
-        text: 'Узнать больше',
+        text: 'Learn More',
         link: '/about',
       },
     },
   },
   features: [
     {
-      title: 'Производительность',
-      description: 'Оптимизирован для максимальной скорости загрузки',
+      title: 'Performance',
+      description: 'Optimized for maximum loading speed',
       icon: '⚡',
     },
     {
-      title: 'Доступность',
-      description: 'Доступен для всех пользователей',
+      title: 'Accessibility',
+      description: 'Accessible to all users',
       icon: '♿',
     },
     {
       title: 'SEO',
-      description: 'Оптимизирован для поисковых систем',
+      description: 'Optimized for search engines',
       icon: '🔍',
     },
   ],

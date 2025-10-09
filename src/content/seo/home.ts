@@ -1,14 +1,14 @@
 export const homeSeo = {
-  title: 'Главная | IP Website',
-  description: 'Современный веб-сайт на React + TypeScript. Быстрый, доступный и оптимизированный.',
+  title: 'Home | IP Website',
+  description: 'Modern website built with React + TypeScript. Fast, accessible, and optimized.',
   canonical: 'https://example.com/',
   openGraph: {
     type: 'website',
-    locale: 'ru_RU',
+    locale: 'en_US',
     url: 'https://example.com/',
     siteName: 'IP Website',
-    title: 'Главная | IP Website',
-    description: 'Современный веб-сайт на React + TypeScript',
+    title: 'Home | IP Website',
+    description: 'Modern website built with React + TypeScript',
     images: [
       {
         url: 'https://example.com/og-image.jpg',
