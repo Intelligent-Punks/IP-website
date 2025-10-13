@@ -1,26 +1,188 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+/* Involve Font Family */
+@font-face {
+  font-family: 'Involve';
+  src: url('/fonts/Involve-Regular.ttf') format('truetype');
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: light) {
+@font-face {
+  font-family: 'Involve';
+  src: url('/fonts/Involve-Oblique.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url('/fonts/Involve-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url('/fonts/Involve-MediumOblique.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url('/fonts/Involve-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url('/fonts/Involve-SemiBoldOblique.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url('/fonts/Involve-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url('/fonts/Involve-BoldOblique.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ============================================
+   TAILWIND CSS v4 IMPORT
+   ============================================ */
+@import "tailwindcss";
+
+/* ============================================
+   THEME CONFIGURATION
+   ============================================ */
+@theme {
+  /* TYPOGRAPHY - Font Families */
+  --font-family-playfair: "Playfair Display", serif;
+  --font-family-involve: Involve, sans-serif;
+  --font-family-sans: Involve, system-ui, -apple-system, sans-serif;
+
+  /* TYPOGRAPHY - Font Sizes */
+  /* Display sizes (titles) */
+  --font-size-display-xl: 64px;
+  --font-size-display-xl--line-height: 1.25;
+  --font-size-display-xl--font-weight: 500;
+  
+  --font-size-display-lg: 48px;
+  --font-size-display-lg--line-height: 1.25;
+  --font-size-display-lg--font-weight: 500;
+  
+  --font-size-display-md: 32px;
+  --font-size-display-md--line-height: 1.5;
+  --font-size-display-md--font-weight: 500;
+
+  /* Body sizes */
+  --font-size-body-lg: 20px;
+  --font-size-body-lg--line-height: 1.625;
+  
+  --font-size-body: 16px;
+  --font-size-body--line-height: 1.625;
+  
+  --font-size-body-sm: 14px;
+  --font-size-body-sm--line-height: 1.625;
+
+  /* TYPOGRAPHY - Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 3;
+
+  /* COLORS - Brand */
+  --color-brand-dark: #000000;
+  --color-brand-orange: #FF5100;
+  --color-brand-cream: #ECECE0;
+  --color-brand-gray: #C2C2B9;
+
+  /* COLORS - Background */
+  --color-background-primary: #ECECE0;
+  --color-background-secondary: #FFFFFF;
+  --color-background-dark: #000000;
+
+  /* COLORS - Text */
+  --color-text-primary: #000000;
+  --color-text-secondary: #C2C2B9;
+  --color-text-accent: #FF5100;
+  --color-text-inverse: #FFFFFF;
+
+  /* COLORS - Border */
+  --color-border-primary: #000000;
+  --color-border-secondary: #FFFFFF;
+  --color-border-light: rgba(0, 0, 0, 0.3);
+
+  /* SPACING */
+  --spacing-section: 80px;
+  --spacing-container-padding: 16px;
+
+  /* MAX WIDTH */
+  --max-width-container: 1392px; /* 1360px content + 16px padding left + 16px padding right */
+  --max-width-content-lg: 900px;
+  --max-width-content-md: 576px;
+  --max-width-content-sm: 413px;
+
+  /* WIDTH */
+  --width-button-sm: 162px;
+  --width-button-lg: 280px;
+
+  /* HEIGHT */
+  --height-button-sm: 162px;
+  --height-button-lg: 280px;
+  --height-image-lg: 736px;
+  --height-decorative-sm: 103px;
+
+  /* BORDER RADIUS */
+  --radius-button: 9999px;
+  --radius-card: 0.5rem;
+
+  /* TRANSITIONS */
+  --transition-duration-default: 200ms;
+  --transition-duration-slow: 300ms;
+
+  /* OPACITY */
+  --opacity-hover: 0.7;
+  --opacity-background: 0.1;
+  --opacity-divider: 0.3;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    font-family: Involve, system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    color: var(--color-text-primary);
   }
 }
-
