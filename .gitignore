@@ -90,3 +90,14 @@ Desktop.ini
 *.temp
 ~$*
 
+# Images - large/unoptimized (keep optimized versions)
+# Uncomment when images get too large for git:
+# public/images/**/*-original.*
+# public/images/**/*-unoptimized.*
+# public/images/**/*.psd
+# public/images/**/*.ai
+
+# Keep small optimized images and icons
+!public/images/icons/**
+!public/images/**/*-optimized.*
+

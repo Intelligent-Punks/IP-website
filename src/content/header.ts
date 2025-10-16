@@ -1,8 +1,4 @@
 export const headerContent = {
-  logo: {
-    text: 'Intelligent Punks',
-    alt: 'Intelligent Punks Logo',
-  },
   navigation: [
     {
       id: 'home',
@@ -49,7 +45,6 @@ export const headerContent = {
       id: 'contact',
       label: 'Contact us',
       href: '/contact',
-      isHighlighted: true,
     },
   ],
 }

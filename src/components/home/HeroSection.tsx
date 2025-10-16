@@ -13,11 +13,11 @@ interface HeroSectionProps {
 export default function HeroSection({ tag, title, description, cta }: HeroSectionProps) {
   return (
     <section className="relative h-[800px] bg-brand-dark overflow-hidden">
-      <div className="flex h-full max-w-container mx-auto px-container-padding">
+      <div className="grid grid-cols-2 gap-10 h-full max-w-content mx-auto">
         {/* Left Side - Image */}
-        <div className="flex-1 h-full">
+        <div className="h-full">
           <img 
-            src="/images/hero-main.jpg" 
+            src="/images/home/hero-main.jpg" 
             alt="Intelligent Punks Hero" 
             className="w-full h-full object-cover"
             loading="eager"
@@ -25,7 +25,7 @@ export default function HeroSection({ tag, title, description, cta }: HeroSectio
         </div>
 
         {/* Right Side - Content */}
-        <div className="flex-1 h-full bg-brand-cream relative px-10 py-10">
+        <div className="h-full bg-brand-cream relative px-10 py-4.5">
           {/* Title */}
           <h1 className="font-involve font-medium text-[64px] leading-[1.33em] text-black">
             {title}
@@ -34,29 +34,29 @@ export default function HeroSection({ tag, title, description, cta }: HeroSectio
           {/* Contact us - Circular Button */}
           <Link
             to={cta.link}
-            className="absolute top-[134px] right-10 w-[162px] h-[162px] border border-black rounded-full flex items-center justify-center text-center hover:bg-black hover:text-brand-cream transition-colors duration-default"
+            className="absolute top-[134px] right-10 w-[162px] h-[162px] border border-black rounded-full flex items-center justify-center text-center hover:bg-brand-dark transition-colors duration-default group"
             aria-label={cta.text}
           >
-            <span className="font-involve font-medium text-base leading-[1.33em]">
+            <span className="font-involve font-medium text-base leading-[1.33em] text-black group-hover:text-brand-cream transition-colors duration-default">
               {cta.text}
             </span>
           </Link>
 
           {/* Who are we? Button */}
           <button 
-            className="absolute top-[402px] left-10 w-[152px] h-11 border border-black rounded-full flex items-center justify-center hover:bg-black hover:text-brand-cream transition-colors duration-default"
+            className="w-[152px] h-11 mt-53.5 border border-black rounded-full flex items-center justify-center hover:bg-brand-dark transition-colors duration-default group"
             aria-label={tag}
           >
-            <span className="font-involve font-medium text-base leading-[1.33em] text-black">
+            <span className="font-involve font-medium text-base leading-[1.33em] text-black group-hover:text-brand-cream transition-colors duration-default">
               {tag}
             </span>
           </button>
 
           {/* Line Divider */}
-          <div className="absolute top-[496px] left-10 w-[580px] h-px bg-black" aria-hidden="true" />
+          <hr className="border-t border-black mt-12.5" aria-hidden="true" />
 
           {/* Description */}
-          <div className="absolute top-[546px] left-10 w-[576px] space-y-6">
+          <div className="space-y-6 mt-11">
             {description.map((paragraph, index) => (
               <p key={index} className="font-involve font-normal text-base leading-[1.5em] text-black">
                 {paragraph}

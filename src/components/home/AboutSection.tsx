@@ -11,7 +11,7 @@ export default function AboutSection({ title, content }: AboutSectionProps) {
           {/* Left - Background Image */}
           <div className="relative h-image-lg">
             <img 
-              src="/images/about-background.png" 
+              src="/images/sections/about-background.png" 
               alt="About Intelligent Punks" 
               className="w-full h-full object-cover"
               loading="lazy"

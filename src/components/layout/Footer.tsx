@@ -7,7 +7,7 @@ export default function Footer() {
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-background"
-        style={{ backgroundImage: 'url(/images/hero-background.png)' }}
+        style={{ backgroundImage: 'url(/images/home/hero-background.png)' }}
         aria-hidden="true"
       />
 
@@ -20,7 +20,7 @@ export default function Footer() {
             </h2>
           </div>
           
-          <p className="font-playfair text-display-md max-w-[1360px] mx-auto">
+          <p className="font-playfair text-display-md max-w-content mx-auto">
             {footerContent.cta.description}
           </p>
         </div>
@@ -88,7 +88,7 @@ export default function Footer() {
               className="w-6 h-6 hover:opacity-hover transition-opacity duration-default" 
               aria-label={social.label}
             >
-              {/* Icon placeholder - можно добавить SVG иконки */}
+              {/* Icon placeholder - TODO: add SVG icons */}
             </a>
           ))}
         </div>

@@ -22,7 +22,7 @@ export default function FooterSection({ cta, navigation, contacts, copyright }: 
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-background"
-        style={{ backgroundImage: 'url(/images/hero-background.png)' }}
+        style={{ backgroundImage: 'url(/images/home/hero-background.png)' }}
         aria-hidden="true"
       />
 
@@ -35,7 +35,7 @@ export default function FooterSection({ cta, navigation, contacts, copyright }: 
             </h2>
           </div>
           
-          <p className="font-playfair text-display-md max-w-[1360px] mx-auto">
+          <p className="font-playfair text-display-md max-w-content mx-auto">
             {cta.description}
           </p>
         </div>

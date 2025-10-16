@@ -1,80 +1,77 @@
-import { Link, useLocation } from 'react-router-dom'
+import { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { headerContent } from '../../content/header'
+import ServicesSubmenu from './ServicesSubmenu'
+import ArrowDownIcon from '../ui/ArrowDownIcon'
+
+const MENU_CLOSE_DELAY = 150 // ms - from CSS var --transition-duration-menu
 
 export default function Header() {
-  const location = useLocation()
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const closeTimeoutRef = useRef<number | null>(null)
+
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+    setIsServicesOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = window.setTimeout(() => {
+      setIsServicesOpen(false)
+    }, MENU_CLOSE_DELAY)
+  }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-brand-dark/95 backdrop-blur-sm">
-      <div className="max-w-container mx-auto px-container-padding py-6">
-        <div className="flex items-center justify-between gap-12">
-          {/* Logo */}
-          <Link to="/" className="flex-shrink-0">
-            <span className="font-involve font-bold text-2xl text-brand-cream">
-              {headerContent.logo.text}
-            </span>
-          </Link>
+    <header 
+      className="fixed top-0 left-0 right-0 z-50 bg-brand-dark"
+    >
+      <div className="max-w-container mx-auto px-container-padding py-10">
+        {/* Navigation Menu - exact 60px height */}
+        <nav className="border-t border-b border-brand-cream py-4.5 flex items-center justify-between" aria-label="Main navigation">
+          {headerContent.navigation.map((item) => {
+            // Special handling for Services with dropdown
+            if (item.hasDropdown) {
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  className="font-involve font-normal text-base leading-[1.33em] text-brand-cream hover:font-bold hover:underline transition-all"
+                >
+                  <span className="flex items-center gap-1.5">
+                    {item.label}
+                    <ArrowDownIcon />
+                  </span>
+                </button>
+              )
+            }
 
-          {/* Navigation */}
-          <nav className="hidden lg:flex items-center justify-between flex-1 max-w-[1359px]">
-            {headerContent.navigation.map((item) => (
+            // Regular menu items
+            return (
               <Link
                 key={item.id}
                 to={item.href}
-                className={`
-                  font-involve text-base leading-[1.33em] text-brand-cream
-                  transition-opacity hover:opacity-80
-                  ${item.isHighlighted ? 'font-bold' : 'font-normal'}
-                  ${location.pathname === item.href ? 'opacity-100' : 'opacity-90'}
-                `}
+                className="font-involve font-normal text-base leading-[1.33em] text-brand-cream hover:font-bold hover:underline transition-all"
               >
-                <span className="flex items-center gap-1.5">
-                  {item.label}
-                  {item.hasDropdown && (
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 18 18"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="flex-shrink-0"
-                    >
-                      <path
-                        d="M3.06 6.71L9 12.03L14.94 6.71"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  )}
-                </span>
+                {item.label}
               </Link>
-            ))}
-          </nav>
+          )
+        })}
+      </nav>
+    </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden text-brand-cream p-2"
-            aria-label="Toggle menu"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          </button>
-        </div>
-      </div>
+      {/* Services Submenu */}
+      {isServicesOpen && (
+        <ServicesSubmenu 
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onLinkClick={() => setIsServicesOpen(false)}
+        />
+      )}
     </header>
   )
 }
