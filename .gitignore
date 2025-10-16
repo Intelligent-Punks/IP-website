@@ -2,47 +2,102 @@
 node_modules
 /.pnp
 .pnp.js
+package-lock.json.backup
 
 # Testing
 /coverage
+*.test.js.snap
 
 # Production
 /dist
 /build
+*.production.min.js
 
 # Development
 *.log
+logs
+*.pid
+*.seed
+*.pid.lock
 
 # Misc
 *.pem
+*.key
+.cache
 
 # Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+lerna-debug.log*
 
 # Local env files
-.env*.local
 .env
+.env.local
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Vercel
 .vercel
+.vercel.json.backup
 
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+dist-ssr
+*.local
+
+# Vite
+.vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# ESLint
+.eslintcache
 
 # IDE
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
 .cursor/
 .idea
 *.swp
 *.swo
 *~
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
 
 # OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# Images - large/unoptimized (keep optimized versions)
+# Uncomment when images get too large for git:
+# public/images/**/*-original.*
+# public/images/**/*-unoptimized.*
+# public/images/**/*.psd
+# public/images/**/*.ai
+
+# Keep small optimized images and icons
+!public/images/icons/**
+!public/images/**/*-optimized.*
 
